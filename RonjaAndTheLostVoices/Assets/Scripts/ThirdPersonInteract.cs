@@ -12,10 +12,10 @@ public class ThirdPersonInteract : MonoBehaviour {
 	}
 
 	void Update () {
-		Ray ray = new Ray (grabOrigin, grabOrigin.forward);
+		Ray ray = new Ray (grabOrigin.position, grabOrigin.forward);
 		objectsInRange = Physics.SphereCastAll (ray, reach);
 
-		if(null){
+		if(true){
 			
 		}
 	}
@@ -28,9 +28,10 @@ public class ThirdPersonInteract : MonoBehaviour {
 		Transform closestObject = null;
 		float distance = Mathf.Infinity;
 		foreach (Transform o in objects) {
-			if (null) {
+			if (true) {
 				
 			}
 		}
+		return null;
 	}
 }

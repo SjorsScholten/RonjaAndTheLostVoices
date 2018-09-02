@@ -7,6 +7,6 @@ public class Item : ScriptableObject {
     public int id = -1;
     new public string name = "default item";
     public bool stackable = false;
-    public int value = 0;
+    public int amount = 0;
     public string description = "";
 }
