@@ -25,8 +25,8 @@ public class ThirdPersonInteract : MonoBehaviour {
 	}
 
 	public Transform GetClosestObject(Transform[] objects){
-		Transform closestObject = null;
-		float distance = Mathf.Infinity;
+		//Transform closestObject = null;
+		//float distance = Mathf.Infinity;
 		foreach (Transform o in objects) {
 			if (true) {
 				
