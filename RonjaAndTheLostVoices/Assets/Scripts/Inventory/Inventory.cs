@@ -70,7 +70,7 @@ public class Inventory : MonoBehaviour {
     }
 
 	public bool CheckForItem(Item item){
-
+        return false;
 	}
 
 	public bool AddNewItem(Item item){
