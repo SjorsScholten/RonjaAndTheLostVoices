@@ -38,27 +38,58 @@ public class Inventory : MonoBehaviour {
 
 		//add amount to the item
 		listItem.amount += item.amount;
-		Debug.Log ("");
+		Debug.Log ("item added to inventory, current amount is: " + items.Find(x => x.id == item.id).amount);
 		return true;
     }
 
 	public bool RemoveItem(Item item) {
-		//pull item from list
-        Item listItem = items.Find(x => x.id == item.id);
-		//check if item is found
-        if(listItem == null) {
-			//item is not found
-			Debug.Log ("");
-			return false;
+        //search for item in inventory
+        Item invItem = items.Find(x => x.id == item.id);
+        //check if item is in inventory
+        if (invItem == null) {
+            //item is not in inventory
+            Debug.Log("cant find item with id: " + item.id);
+            return false;
         }
-		//item is found
+        //item is in inventory
 
+        //check if the substracted amount is lower as 0
+        if (invItem.amount - item.amount < 0) {
+            //substracted amount is below 0
+            Debug.Log("cant substract amount below 0, current amount: " + invItem.amount + ", amount to substract: " + item.amount);
+            return false;
+        }
+        //substracted amount is higher or equal as 0
 
+        //substract amount from amount in inventory
+        invItem.amount -= item.amount;
 
-		return true;
+        //check if item amount is lower or equal as 0
+        if (invItem.amount <= 0) {
+            //item amount is lower or equal as 0
+            items.Remove(invItem);
+            Debug.Log("new slot AVAILABE, amount of slots: " + (slots - items.Count));
+        }
+        //item amount is greater as 0
+        return true;
     }
 
-	public void MoveItem(Item oldLocation, Item newLocation) {
+    public bool AddNewItem(Item item) {
+        //check if there are slots available
+        if (slots - items.Count <= 0) {
+            //no slots available
+            Debug.Log("");
+            return false;
+        }
+        //slots available
+
+        //add item as new
+        items.Add(item);
+        Debug.Log("");
+        return true;
+    }
+
+    public void MoveItem(Item oldLocation, Item newLocation) {
 		int indexOld = items.FindIndex (x => x.id == oldLocation.id);
 		int indexNew = items.FindIndex (x => x.id == newLocation.id);
 		items.Insert (indexOld, newLocation);
@@ -73,18 +104,5 @@ public class Inventory : MonoBehaviour {
         return false;
 	}
 
-	public bool AddNewItem(Item item){
-		//check if there are slots available
-		if (slots - items.Count <= 0) {
-			//no slots available
-			Debug.Log ("");
-			return false;
-		}
-		//slots available
-
-		//add item as new
-		items.Add (item);
-		Debug.Log ("");
-		return true;
-	}
+	
 }
