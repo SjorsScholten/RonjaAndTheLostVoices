@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class TableController : MonoBehaviour {
-
-    [Range(1, 5)] public int colloms = 1;
     public GameObject tableHeaderPrefab;
     public GameObject tableRowPrefab;
     public GameObject tableItem;
+    RectTransform _transform;
+    GridLayoutGroup _THLayout;
+    GridLayoutGroup _TRLayout;
 
     private List<string[]> TestRows = new List<string[]>();
 
     private void Start() {
+        _transform = GetComponent<RectTransform>();
+        _THLayout = tableHeaderPrefab.GetComponent<GridLayoutGroup>();
+
         TestRows.Add(new string[] { "name", "Amount", "type" });
         TestRows.Add(new string[] { "sword", "5", "weapon" });
         TestRows.Add(new string[] { "shield", "2", "armor" });
@@ -33,12 +37,17 @@ public class TableController : MonoBehaviour {
         for(int i = 0; i < TestRows.Count; i++) {
             if (i == 0) {
                 //Add header row
+                float cellSizeX = (_transform.sizeDelta.x / TestRows[0].Length) - (_THLayout.padding.left + _THLayout.padding.right + _THLayout.spacing.x * TestRows[0].Length);
+                Debug.Log(cellSizeX);
+                _THLayout.cellSize.Set(cellSizeX,  _transform.sizeDelta.y);
+                tableHeaderPrefab.GetComponent<GridLayoutGroup>().cellSize = _THLayout.cellSize;
                 AddRow(tableHeaderPrefab, TestRows[0]);
             } else {
                 //Add data row
+                tableRowPrefab.GetComponent<GridLayoutGroup>().cellSize.Set(_transform.sizeDelta.x / TestRows[i].Length, _transform.sizeDelta.y);
                 AddRow(tableRowPrefab, TestRows[i]);
             }
-        } 
+        }
     }
 
     private void AddRow(GameObject prefab, string[] data) {
