@@ -24,12 +24,12 @@ public class ThirdPersonController : MonoBehaviour {
 
     Transform cameraT;
     CharacterController character;
-    Animator animator;
+    //Animator animator;
 
 	protected void Start () {
         //base.Start();
         character = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         cameraT = Camera.main.transform;
 	}
 
@@ -59,7 +59,7 @@ public class ThirdPersonController : MonoBehaviour {
         if (interacting) { PickUp(); }
 
         //animation
-        float animationPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * 0.5f);
+        //float animationPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * 0.5f);
 	}
 
     private void Jump() {

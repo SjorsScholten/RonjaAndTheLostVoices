@@ -23,7 +23,7 @@ public class Equipment : MonoBehaviour {
 
     public void Unequip(int slotIndex) {
         if(equipmentSlots[slotIndex] != null) {
-            Equipable old = equipmentSlots[slotIndex];
+            //Equipable old = equipmentSlots[slotIndex];
             equipmentSlots[slotIndex] = null;
         }
     }
