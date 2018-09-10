@@ -15,7 +15,7 @@ public class CarrouselController : MonoBehaviour {
 
 	private Vector3 startPosition;
 	private int startIndex = 0, endIndex = 0, currentIndex = 0;
-	private bool focus = false;
+	//private bool focus = false;
 	private Text[] _labels;
 
 	// Use this for initialization

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114628107208240712}
   - component: {fileID: 114482025039764178}
   m_Layer: 5
-  m_Name: TableHeader2
+  m_Name: TableHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
