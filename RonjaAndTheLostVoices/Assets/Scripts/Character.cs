@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 	private readonly int id;
-	private readonly string name;
+	new private readonly string name;
 	//private readonly 
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour {
 	private int id;
-	private string name;
+	new private string name;
 
 	private List<PlayerData> friends = new List<PlayerData> ();
 	//charcters
