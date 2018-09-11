@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1a7d483c027234e4bb2b2ab74b84e608
+timeCreated: 1536583992
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - legendaTabPrefab: {fileID: 224445305152569258, guid: 4228c71e8717083498fd60208a9b3387,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
