@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IStat {
-    void CalculateModifiedValue();
+public interface IObserver {
+    void Update();
 }
